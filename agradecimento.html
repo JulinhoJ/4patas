@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obrigado por sua doação! | Fundação Quatro Patas</title>
+    <meta
+      name="description"
+      content="Sua doação foi confirmada. Obrigado por ajudar a Fundação Quatro Patas!"
+    />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .thanks-container {
+        text-align: center;
+        padding: 50px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .thanks-icon {
+        width: 120px;
+        height: 120px;
+        background-color: #28a745;
+        border-radius: 50%;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .thanks-icon svg {
+        width: 60px;
+        height: 60px;
+        fill: white;
+      }
+      .thanks-title {
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .thanks-message {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      .thanks-cta {
+        margin-top: 40px;
+      }
+      .btn-home {
+        background-color: #ff385c;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      .btn-home:hover {
+        background-color: #e6324f;
+        transform: translateY(-2px);
+      }
+      .thanks-receipt {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="container">
+          <div
+            class="content-header d-flex align-items-center justify-content-between"
+          >
+            <div class="logo">
+              <a href="index.html"
+                ><img src="images/logo.svg" alt="Vakinha Online"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="thanks-container">
+        <div class="thanks-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+            ></path>
+          </svg>
+        </div>
+        <h1 class="thanks-title">Doação Confirmada!</h1>
+        <p class="thanks-message">
+          Muito obrigado por sua contribuição para a Fundação Quatro Patas!<br />
+          Seu apoio irá ajudar a manter nossos anjinhos seguros, alimentados e
+          saudáveis.
+        </p>
+        <div class="thanks-details">
+          <p>
+            Você receberá um e-mail de confirmação com os detalhes da sua
+            doação.
+          </p>
+          <p>
+            Sua ajuda faz toda a diferença na vida desses animais. Cada real
+            doado transforma-se em alimento, cuidados médicos e amor para os
+            bichinhos.
+          </p>
+        </div>
+        <div class="thanks-cta">
+          <a href="index.html" class="btn-home">Voltar para a página inicial</a>
+        </div>
+        <div class="thanks-receipt">
+          <p>
+            Para solicitar seu recibo de doação, entre em contato pelo e-mail:
+            contato@fundacaoquatropatas.org
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div class="aviso">
+          <div class="container">
+            <span>
+              AVISO LEGAL: O texto e as imagens incluídos nessa página são de
+              única e exclusiva responsabilidade do criador da vaquinha e não
+              representam a opinião ou endosso da plataforma Vakinha.
+            </span>
+          </div>
+        </div>
+        <div class="copyright">
+          <span>© 2025 - Todos direitos reservados</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      // Animar aparecimento dos elementos
+      document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll(
+          ".thanks-icon, .thanks-title, .thanks-message, .thanks-details, .thanks-cta"
+        );
+
+        elements.forEach((element, index) => {
+          setTimeout(() => {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }, 300 * index);
+        });
+      });
+    </script>
+  </body>
+</html>
