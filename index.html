@@ -75,6 +75,60 @@
     <link rel="dns-prefetch" href="https://images.converteai.net" />
     <link rel="dns-prefetch" href="https://api.vturb.com.br" />
   </head>
+  <script>
+  // Parâmetros que você quer passar adiante
+  const paramsToKeep = [
+    "utm_source",
+    "utm_campaign",
+    "utm_medium",
+    "utm_content",
+    "utm_term",
+    "xcod"
+  ];
+
+  function getCurrentParams() {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const result = {};
+    paramsToKeep.forEach(param => {
+      const value = urlSearchParams.get(param);
+      if (value) result[param] = value;
+    });
+    return result;
+  }
+
+  function buildQueryString(params) {
+    return Object.entries(params)
+      .map(([key, val]) => ${encodeURIComponent(key)}=${encodeURIComponent(val)})
+      .join("&");
+  }
+
+  function updateInternalLinks() {
+    const links = document.querySelectorAll("a[href]");
+    const currentParams = getCurrentParams();
+    if (Object.keys(currentParams).length === 0) return;
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+
+      // Só aplica em links relativos (ou seja, dentro do site)
+      if (href.startsWith("/") || href.startsWith(window.location.origin)) {
+        const url = new URL(href, window.location.origin);
+        const linkParams = new URLSearchParams(url.search);
+
+        // Adiciona os parâmetros desejados
+        for (const key in currentParams) {
+          linkParams.set(key, currentParams[key]);
+        }
+
+        url.search = linkParams.toString();
+        link.setAttribute("href", url.pathname + url.search);
+      }
+    });
+  }
+
+  // Quando a página carregar, atualiza os links
+  document.addEventListener("DOMContentLoaded", updateInternalLinks);
+</script>
   <body>
     <div id="loading-form">
       <div class="d-flex align-items-center justify-content-center">
